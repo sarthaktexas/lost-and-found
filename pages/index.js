@@ -1,14 +1,19 @@
 import HeadObject from '../components/head'
-import Nav from '../components/nav';
+import useSWR from "swr"
+import fetcher from '../lib/fetcher'
+import Link from 'next/link'
 
 export default function Home() {
+  const events = useSWR('/api/getlistofevents', fetcher).data;
   return (
-    <div className="dark:text-white dark:bg-black">
-      <HeadObject>
-        {/* You can put extra tags in here, or leave it blank */}
-      </HeadObject>
-      <Nav />
-      The perfect Next.js Theme. Contains everything. Check README for more information.
+    <div className="m-10">
+      <HeadObject />
+      <h1 className="font-handjet text-6xl">Lost and Found</h1>
+      <ol className="list-disc  list-inside">
+        {events?.map((event) => (
+          <li key={event} className="text-lg text-gray-400 hover:underline italic"><Link href={`/${event}`}>{event}</Link></li>
+        ))}
+      </ol>
     </div>
   )
 }
