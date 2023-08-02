@@ -70,11 +70,10 @@ export default function Event() {
                         <div className="mt-2">
                           <iframe
                             className="airtable-embed"
-                            src="https://airtable.com/embed/appWNlWHbrcv7v6w7/shrOdsB5PG1A49Z1H?backgroundColor=redDusty"
-                            frameBorder={0}
+                            src="https://airtable.com/embed/appWNlWHbrcv7v6w7/shr4FWNXMIeSQTFTE?backgroundColor=redDusty"
                             onmousewheel=""
                             width="100%"
-                            height="700"
+                            height={700}
                             style={{ background: "transparent", border: "1px solid #ccc" }}
                           />
                         </div>
